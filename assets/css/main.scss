@@ -1,0 +1,27 @@
+---
+---
+// 1. Your custom variables and variable overwrites.
+$global-link-color: #6c004c;
+$global-primary-background: $global-link-color;
+$global-secondary-background: #258c7b;
+
+
+// 2. Import default variables and available mixins.
+@import "variables-theme";
+@import "mixins-theme";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-card() { color: #000; }
+
+// 4. Import UIkit.
+@import "uikit-theme";
+
+.logo {
+    font-family: 'Bowlby One', sans-serif;
+    color: $global-primary-background;
+}
+
+.logo-sub-heading {
+    letter-spacing: 0.5rem;
+    color: $global-secondary-background
+}
