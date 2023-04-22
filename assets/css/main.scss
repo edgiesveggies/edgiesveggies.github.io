@@ -1,9 +1,12 @@
 ---
 ---
 // 1. Your custom variables and variable overwrites.
-$global-link-color: #6c004c;
+$global-background: #fffbeb;
+$global-link-color: #cf0089;
 $global-primary-background: $global-link-color;
-$global-secondary-background: #258c7b;
+$global-secondary-background: #00af95;
+
+$global-font-family: 'Barlow', sans-serif;
 
 
 // 2. Import default variables and available mixins.
@@ -16,12 +19,28 @@ $global-secondary-background: #258c7b;
 // 4. Import UIkit.
 @import "uikit-theme";
 
+.edgie-border {
+    border: 1px $global-link-color solid
+}
+
+.edgie-secondary-border {
+    border: 1px $global-secondary-background solid
+}
+
 .logo {
-    font-family: 'Bowlby One', sans-serif;
     color: $global-primary-background;
+    text-shadow: 0.3rem 0.3rem #ffde59;
 }
 
 .logo-sub-heading {
-    letter-spacing: 0.5rem;
-    color: $global-secondary-background
+    letter-spacing: 0.2rem;
+    color: $global-secondary-background;
+    font-size: 1rem;
+
+    @media (min-width: $breakpoint-small) {
+        font-size: 1.25rem;
+    }
+    @media (min-width: $breakpoint-medium) {
+        font-size: 1.5rem;
+    }
 }
