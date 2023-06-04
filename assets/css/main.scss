@@ -7,7 +7,12 @@ $global-link-hover-color: darken($global-link-color, 5%);
 $global-primary-background: $global-link-color;
 $global-secondary-background: #00af95;
 
+$global-border: $global-secondary-background;
+
 $global-font-family: 'Barlow', sans-serif;
+
+$form-background: #fff;
+$form-focus-background: #fff;
 
 
 // 2. Import default variables and available mixins.
