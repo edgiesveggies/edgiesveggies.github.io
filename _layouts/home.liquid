@@ -3,7 +3,8 @@
 {% include head.html %}
 
 <body class="uk-text-center">
-    <div class="uk-container uk-container-xsmall">
+    <div
+        class="uk-container uk-container-xsmall uk-padding-remove-left uk-padding-remove-right">
         <div class="uk-cover-container uk-height-medium">
             <img src="{{ '/assets/images/lettuce-cropped-web.jpeg' | relative_url }}"
                 alt="Beautiful Young Edgie's Veggies Lettuce covered in rain droplets"
@@ -43,7 +44,8 @@
                             your menu.
                         </p>
                     </div>
-                    <form class="js-cm-form uk-form-stacked uk-text-left"
+                    <form
+                        class="js-cm-form uk-form-stacked uk-text-left uk-align-center uk-width-2-3@s"
                         id="subForm"
                         action="https://www.createsend.com/t/subscribeerror?description="
                         method="post"
@@ -64,7 +66,7 @@
                         </div>
                         <div class="uk-margin">
                             <button type="submit"
-                                class="uk-button uk-button-secondary uk-width-1-1">Subscribe</button>
+                                class="uk-button uk-button-secondary uk-align-center">Subscribe</button>
                         </div>
                     </form>
                 </div>
@@ -75,9 +77,37 @@
         </div>
     </div>
 
-    <div class="uk-container uk-container-xsmall uk-margin-medium-bottom">
-        <img src="{{ '/assets/images/family-web.jpeg' | relative_url }}"
-            alt="Beautiful Young Edgie's Veggies Lettuce covered in rain droplets">
+    <div
+        class="uk-container uk-container-xsmall uk-margin-medium-bottom uk-padding-remove-left uk-padding-remove-right">
+        <div class="uk-position-relative uk-visible-toggle uk-light"
+            tabindex="-1" uk-slideshow="autoplay: true; ratio: 3:2">
+            <ul class="uk-slideshow-items">
+                {% for image in site.static_files %}
+                {% if image.path contains 'images/home-slides/' %}
+                {% increment slider_counter %}
+                <li>
+                    <img src="{{ image.path | relative_url }}" alt="image"
+                        uk-cover>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% decrement slider_counter %}
+            </ul>
+
+            <a class="uk-position-center-left uk-position-small" href="#"
+                uk-slidenav-previous uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small" href="#"
+                uk-slidenav-next uk-slideshow-item="next"></a>
+
+            <div class="uk-position-bottom-center uk-position-small">
+                <ul class="uk-dotnav">
+                    {% for i in (0..slider_counter) %}
+                    <li uk-slideshow-item="{{ i }}"><a href="#">Item {{ i }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div class="uk-container uk-container-xsmall">
@@ -123,11 +153,12 @@
                         <label class="uk-form-label"
                             for="message">Message</label>
                         <div class="uk-form-controls">
-                            <textarea class="uk-textarea" id="message" rows="5"></textarea>
+                            <textarea class="uk-textarea" id="message"
+                                rows="5"></textarea>
                         </div>
                     </div>
                 </div>
-                <button class="uk-button uk-button-secondary uk-width-1-1">SUBMIT</button>
+                <button class="uk-button uk-button-secondary">SUBMIT</button>
             </form>
         </div>
     </div>
